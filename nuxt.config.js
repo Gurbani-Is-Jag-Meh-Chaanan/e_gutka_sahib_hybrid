@@ -17,13 +17,22 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        src: `sql-wasm.js`,
+      },
+    ],
   },
-
+  // capacitor server settings
+  // "server": {
+  //   "url": "http://192.168.29.239:3000",
+  //   "cleartext": true
+  // }
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/capacitor-sqlite.js"],
+  plugins: ["~/plugins/sqljs.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

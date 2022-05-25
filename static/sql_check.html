@@ -1,0 +1,20 @@
+<head>
+  <title>Waheguru</title>
+</head>
+<script src="sql-wasm.js"></script>
+<script>
+  async function testSQL() {
+    const sqlPromise = window.initSqlJs();
+    const dataPromise = fetch("shabad_os.sqlite").then((res) =>
+      res.arrayBuffer()
+    );
+    const [SQL, buf] = await Promise.all([sqlPromise, dataPromise]);
+    const db = new SQL.Database(new Uint8Array(buf));
+    const res = db.exec("SELECT * FROM sources");
+    console.log(res);
+  }
+  testSQL();
+</script>
+<body>
+  Waheguru
+</body>
